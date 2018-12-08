@@ -1,11 +1,10 @@
 html {
-  font-family: Roboto,sans-serif;
+  font-family: sans-serif;
   font-size: 10px;
 }
 
 body {
   margin: 0;
-  font-family: Roboto,sans-serif;
   line-height: 1.5;
   font-weight: 400;
   letter-spacing: 0.03125em;

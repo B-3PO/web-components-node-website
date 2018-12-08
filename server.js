@@ -32,6 +32,7 @@ setConfig({
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use('/assets', express.static(path.join(__dirname, './app/public')));
+app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));
 
 app.use('/', require('./app/router'));
 

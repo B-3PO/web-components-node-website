@@ -7,12 +7,14 @@ const nav = require('./navigation');
 require('../components');
 
 module.exports = ({ body, title }) => html`
-  <!DOCTYPE html>
+  <!doctype html>
   <html lang="en">
     <head>
-      <title>${title}</title>
+      <meta charset="UTF-8">
       <meta http-equiv="Cache-Control" content="no-store" />
-      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="Description" content="Build, render and serve web-components">
+      <title>${title}</title>
       <link rel="stylesheet" href="/assets/styles/main.css">
       <link rel="stylesheet" href="/assets/styles/page.css">
       ${browserScripts.include()}

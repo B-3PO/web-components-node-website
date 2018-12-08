@@ -24,7 +24,7 @@ const page = customElements.define('home-page', class extends HTMLElement {
           <article class="sub-article">
             <h4>Goals</h4>
 
-            <img src="assets/images/goals-performance.png" width=100% style="padding-top:24px; padding-bottom: 32px;" />
+            <img src="assets/images/goals-performance.png" alt="" width=100% style="padding-top:24px; padding-bottom: 32px;" />
 
             <div class="row">
               <div class="flex column-article">

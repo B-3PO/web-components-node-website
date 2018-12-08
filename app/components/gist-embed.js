@@ -35,7 +35,7 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
   buildIframe() {
     const gistFrame = document.createElement('iframe');
     gistFrame.setAttribute('width', '100%');
-    gistFrame.id = 'gistFrame';
+    gistFrame.title = "code";
     gistFrame.style.height = '240px';
     gistFrame.style.border = '1px solid #CCC';
     this.appendChild(gistFrame);
@@ -69,10 +69,12 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
           <script>
             function load() {
               setTimeout(function () {
-                document.querySelector('.gist').classList.add('load');
+                var gist = document.querySelector('.gist');
+                if (gist) gist.classList.add('load');
 
                 setTimeout(function () {
-                  if (!document.querySelector('.gist').classList.contains('load')) document.querySelector('.gist').classList.add('load');
+                  if (!gist) gist = document.querySelector('.gist');
+                  if (!gist.classList.contains('load')) gist.classList.add('load');
                 }, 0.2);
               }, 0);
             }
