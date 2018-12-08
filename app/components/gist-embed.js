@@ -8,6 +8,8 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
   constructor() {
     super();
     if (this.src) this.buildIframe();
+    this.style.background = '#282c34';
+    this.style.display = 'block';
   }
 
   static get observedAttributes() {
@@ -27,7 +29,6 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    console.log('attributeChangedCallback', name, newValue);
     this[name] = newValue;
   }
 
@@ -44,15 +45,39 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
       <html>
         <style>
           @import 'assets/styles/gist-syntax.css';
-
           @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
           body {
             margin: -1px;
             font: 16px 'Open Sans', sans-serif;
           }
+
+          .gist {
+            opacity: 0;
+            background: #282c34;
+            -webkit-transition: opacity 0.3s ease-in-out;
+               -moz-transition: opacity 0.3s ease-in-out;
+                 -o-transition: opacity 0.3s ease-in-out;
+                    transition: opacity 0.3s ease-in-out;
+          }
+
+          .gist.load {
+            opacity: 1;
+          }
         </style>
         <body>
-          <script typ="text/javascript" src="${this.src}"></script>
+          <script>
+            function load() {
+              setTimeout(function () {
+                document.querySelector('.gist').classList.add('load');
+
+                setTimeout(function () {
+                  if (!document.querySelector('.gist').classList.contains('load')) document.querySelector('.gist').classList.add('load');
+                }, 0.2);
+              }, 0);
+            }
+          </script>
+          <script id="gist-script" typ="text/javascript" src="${this.src}" onload="load()"></script>
         </body>
       </html>
     `;
