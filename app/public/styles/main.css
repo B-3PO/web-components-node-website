@@ -1,0 +1,114 @@
+html {
+  font-family: Roboto,sans-serif;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto,sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.03125em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* --- Side navigation --- */
+
+nav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+  background-color: #364051;
+}
+
+nav a {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  min-height: 36px;
+  min-width: 88px;
+  vertical-align: middle;
+  align-items: center;
+  user-select: none;
+  outline: none;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  overflow: hidden;
+  transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+  border-radius: 0;
+  color: #b3b3b3;
+  font-weight: 400;
+  line-height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  text-align: left;
+  text-decoration: none;
+  width: 100%;
+  text-transform: none;
+  white-space: nowrap;
+  padding-right: 6px;
+}
+
+nav a.current {
+  color: #69ce7d;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background-color: rgba(158,158,158,0.2);
+}
+
+section.page-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 160px;
+  right: 0;
+  overflow-y: scroll;
+}
+
+header {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 160px;
+  right: 0;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 54px;
+  background: #fff;
+  color: #202020;
+  min-height: 56px;
+  z-index: 61;
+  overflow: hidden;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,.09), 0 0 2px 2px rgba(0,0,0,.098), 0 0 5px 1px rgba(0,0,0,.084);
+}
+
+
+header h2 {
+  display: inline-block;
+  font-size: 2.4rem;
+  font-weight: 300;
+  line-height: 52px;
+}
+
+header .subtext {
+  font-size: 1.4rem;
+  float: right;
+  line-height: 55px;
+}
+
+section.body-container {
+  margin-top: 54px;
+}
