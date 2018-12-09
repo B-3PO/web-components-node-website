@@ -4,7 +4,7 @@ const {
   html
 } = require('web-components-node');
 
-const page = customElements.define('home-page', class extends HTMLElement {
+const page = customElements.export('home-page', class extends HTMLElement {
   template() {
     return html`
       <style>

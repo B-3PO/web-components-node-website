@@ -1,10 +1,9 @@
 const {
   customElements,
-  HTMLElement,
-  registerComponent
+  HTMLElement
 } = require('web-components-node');
 
-registerComponent(customElements.define('gist-embed', class extends HTMLElement {
+customElements.define('gist-embed', class extends HTMLElement {
   constructor() {
     super();
     if (this.src) this.buildIframe();
@@ -75,7 +74,7 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
                 setTimeout(function () {
                   if (!gist) gist = document.querySelector('.gist');
                   if (!gist.classList.contains('load')) gist.classList.add('load');
-                }, 0.2);
+                }, 200);
               }, 0);
             }
           </script>
@@ -93,4 +92,4 @@ registerComponent(customElements.define('gist-embed', class extends HTMLElement 
     gistFrameDoc.writeln(gistFrameHTML);
     gistFrameDoc.close();
   }
-}));
+});
