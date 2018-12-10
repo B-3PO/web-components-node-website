@@ -35,8 +35,6 @@ customElements.define('expander-header', class extends HTMLElement {
           display: flex;
           position: relative;
           cursor: pointer;
-          min-height: 36px;
-          min-width: 88px;
           vertical-align: middle;
           align-items: center;
           user-select: none;
@@ -47,9 +45,11 @@ customElements.define('expander-header', class extends HTMLElement {
           overflow: hidden;
           transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
           border-radius: 0;
-          margin: 0;
-          padding: 10px 15px;
           white-space: nowrap;
+
+          margin: 0;
+          line-height: 18px;
+          padding: 12px 24px;
         }
 
         :host(:hover) {

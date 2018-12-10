@@ -31,8 +31,11 @@ setConfig({
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use('/assets', express.static(path.join(__dirname, './app/public')));
+app.use('*/assets', express.static(path.join(__dirname, './app/public')));
+app.use('/images', express.static(path.join(__dirname, './app/public/images')));
 app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));
+app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json')));
+app.use('/favicon.ico', express.static('./app/public/images/favicon.ico'));
 
 app.use('/', require('./app/router'));
 

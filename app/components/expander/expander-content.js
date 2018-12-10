@@ -8,11 +8,11 @@ customElements.define('expander-content', class extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = this.template();
-    this.transitionEventName = this.getTransitionEventName();
     if (this.hasAttribute('height')) this.height = this.getAttribute('height').replace('px', '')
   }
 
   connectedCallback() {
+    this.transitionEventName = this.getTransitionEventName();
     this.parentNode.registerContent(this);
   }
 

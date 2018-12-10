@@ -14,7 +14,9 @@ module.exports = ({ body, title }) => html`
       <meta http-equiv="Cache-Control" content="no-store" />
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="Description" content="Build, render and serve web-components">
+      <meta name="theme-color" content="#364051"/>
       <title>${title}</title>
+      <link rel="manifest" href="/manifest.json">
       <link rel="stylesheet" href="/assets/styles/main.css">
       <link rel="stylesheet" href="/assets/styles/page.css">
       ${browserScripts.include()}

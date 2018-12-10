@@ -17,25 +17,50 @@ body {
 
 nav {
   height: 100%;
-  width: 160px;
+  width: 220px;
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
   overflow-x: hidden;
   padding-top: 20px;
-
   background-color: #364051;
 }
 
+nav section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top: 1px solid #50545a;
+}
+
+nav section:first-of-type {
+  border-top:  none;
+  padding-top: 36px;
+}
+
+nav .main-title {
+  color: #7b99c7;
+  display: block;
+  font-size: 24px;
+  padding-left: 24px;
+  line-height: 25px;
+}
+
+nav .title {
+  color: #5a6b86;
+  display: block;
+  font-size: 18px;
+  padding-bottom: 12px;
+  padding-left: 24px;
+  /* padding-top: 40px; */
+}
+
 nav a {
+  display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  display: flex;
   position: relative;
   cursor: pointer;
-  min-height: 36px;
-  min-width: 88px;
   vertical-align: middle;
   align-items: center;
   user-select: none;
@@ -48,15 +73,18 @@ nav a {
   border-radius: 0;
   color: #b3b3b3;
   font-weight: 400;
-  line-height: 48px;
-  margin: 0;
-  padding: 0 16px;
   text-align: left;
   text-decoration: none;
-  width: 100%;
   text-transform: none;
   white-space: nowrap;
-  padding-right: 6px;
+
+  width: 100%;
+  line-height: 18px;
+  padding: 12px 24px;
+}
+
+nav expander-content a {
+  padding-left: 36px;
 }
 
 nav a.active {
@@ -72,7 +100,7 @@ section.page-container {
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 160px;
+  left: 220px;
   right: 0;
   overflow-y: scroll;
 }
@@ -81,7 +109,7 @@ header {
   position: fixed;
   box-sizing: border-box;
   top: 0;
-  left: 160px;
+  left: 220px;
   right: 0;
   padding-left: 12px;
   padding-right: 12px;
