@@ -20,11 +20,80 @@
   flex-direction: column;
 }
 
+.spacer {
+  padding-top: 36px;
+}
+
 flex {
   display: flex;
   flex: 1;
 }
 
+.disclaimer-container {
+  margin: 1.5em 0;
+  padding: 8px 16px;
+  overflow: hidden;
+  border-left: 4px solid #ffab40;
+  background-color: #ffcdd2;
+  border-left-color: #ff5252;
+}
+
+.direction {
+  font-size: 1.4rem;
+  margin: 1.5em 0;
+  padding: 8px 16px;
+  overflow: hidden;
+  background-color: #EEE;
+}
+
+
+/* -- button -- */
+button, a.button {
+  min-width: 88px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  background: transparent;
+  border: 0;
+  transition: .4s cubic-bezier(.4,0,.2,1);
+  line-height: 36px;
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+}
+
+button:before, a.button:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: .4s cubic-bezier(.4,0,.2,1);
+  will-change: background-color,opacity;
+  content: " ";
+}
+
+button:hover:before, a.button:hover:before {
+  background-color: currentColor;
+  opacity: .12;
+}
+
+button.primary, a.button.primary {
+  color: #448aff;
+}
 
 /* --- Center --- */
 .center-container {
@@ -38,6 +107,7 @@ flex {
 @media screen and (max-width: 1084px) {
   .center-container {
     padding: 0;
+    width: 96%;
   }
 }
 

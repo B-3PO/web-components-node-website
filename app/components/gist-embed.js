@@ -6,9 +6,10 @@ const {
 customElements.define('gist-embed', class extends HTMLElement {
   constructor() {
     super();
-    if (this.src) this.buildIframe();
     this.style.background = '#282c34';
     this.style.display = 'block';
+    this.style.border = '1px solid #CCC';
+    if (this.src) this.buildIframe();
   }
 
   static get observedAttributes() {
@@ -23,6 +24,10 @@ customElements.define('gist-embed', class extends HTMLElement {
     return this.getAttribute('height');
   }
 
+  get hideFooter() {
+    return this.hasAttribute('hide-footer');
+  }
+
   set height(value) {
     this.children[0].style.height =  String(value).replace('px', '') + 'px';
   }
@@ -35,8 +40,7 @@ customElements.define('gist-embed', class extends HTMLElement {
     const gistFrame = document.createElement('iframe');
     gistFrame.setAttribute('width', '100%');
     gistFrame.title = "code";
-    gistFrame.style.height = '240px';
-    gistFrame.style.border = '1px solid #CCC';
+    gistFrame.style.border = 'none';
     this.appendChild(gistFrame);
 
     // Create the iframe's document
@@ -48,7 +52,6 @@ customElements.define('gist-embed', class extends HTMLElement {
 
           body {
             margin: -1px;
-            font: 16px 'Open Sans', sans-serif;
           }
 
           .gist {
@@ -70,12 +73,24 @@ customElements.define('gist-embed', class extends HTMLElement {
               setTimeout(function () {
                 var gist = document.querySelector('.gist');
                 if (gist) gist.classList.add('load');
+                ${this.hideFooter ? 'hideFooter();' : ''}
 
                 setTimeout(function () {
                   if (!gist) gist = document.querySelector('.gist');
                   if (!gist.classList.contains('load')) gist.classList.add('load');
+                  ${this.hideFooter ? 'hideFooter();' : ''}
                 }, 200);
               }, 0);
+            }
+
+            function hideFooter() {
+              var meta = document.querySelector('.gist-meta');
+
+              if (meta) {
+                document.querySelector('.gist-meta').remove();
+                document.querySelector('.gist-data').css('border-bottom', '0px');
+                document.querySelector('.gist-file').css('border-bottom', '1px solid #ddd');
+              }
             }
           </script>
           <script id="gist-script" typ="text/javascript" src="${this.src}" onload="load()"></script>

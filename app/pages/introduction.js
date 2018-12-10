@@ -12,8 +12,11 @@ const page = customElements.export('introduction-page', class extends HTMLElemen
       </style>
 
       <div id="content" class="center-container">
-        <article>
+        <div class="disclaimer-container">
+          Disclaimer: This is a beta version
+        </div>
 
+        <article>
           <article class="into-article">
             <h3>Introduction</h3>
             <p>

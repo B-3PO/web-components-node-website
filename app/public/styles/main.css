@@ -4,6 +4,7 @@ html {
 }
 
 body {
+  font-size: 1.4rem;
   margin: 0;
   line-height: 1.5;
   font-weight: 400;
@@ -134,6 +135,14 @@ header .subtext {
   font-size: 1.4rem;
   float: right;
   line-height: 55px;
+}
+
+header .version {
+  line-height: 55px;
+  vertical-align: top;
+  padding-left: 4px;
+  color: #5e8dff;
+  font-weight: bold;
 }
 
 section.body-container {
