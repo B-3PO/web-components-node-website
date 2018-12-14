@@ -8,7 +8,7 @@ customElements.define('expander-content', class extends HTMLElement {
     super();
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.innerHTML = this.template();
-    if (this.hasAttribute('height')) this.height = this.getAttribute('height').replace('px', '')
+    if (this.hasAttribute('height')) this.height = this.getAttribute('height').replace('px', '');
   }
 
   connectedCallback() {
@@ -82,7 +82,6 @@ customElements.define('expander-content', class extends HTMLElement {
 
         :host(.show) {
           display: block;
-          overflow-y: auto;
         }
       </style>
 
