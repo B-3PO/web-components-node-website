@@ -1,3 +1,4 @@
+// TODO hide scroll bar when user has a mouse wheel
 const {
   customElements,
   HTMLElement
@@ -60,11 +61,13 @@ customElements.define('gist-embed', class extends HTMLElement {
 
           body.no-scroll {
             overflow-y: hidden;
+            overflow-x: hidden;
           }
 
           .gist {
             opacity: 0;
             background: #282c34;
+            overflow-x: scroll;
             -webkit-transition: opacity 0.3s ease-in-out;
                -moz-transition: opacity 0.3s ease-in-out;
                  -o-transition: opacity 0.3s ease-in-out;

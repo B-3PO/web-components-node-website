@@ -48,11 +48,11 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
             <div class="spacer"></div>
             <h6>Page routes</h6>
             <p class="direction">
-              <b>/</b> <i>this will redirect to home</i><br />
-              <b>/home</b><br />
-              <b>/nested/one</b><br />
-              <b>/404</b><br />
-              <b>/none-existing-page</b> <i>this will redirect to 404</i>
+              1. <b>/</b> <i>this will redirect to home</i><br />
+              2. <b>/home</b><br />
+              3. <b>/nested/one</b><br />
+              4. <b>/404</b><br />
+              5. <b>/none-existing-page</b> <i>this will redirect to 404</i>
             </p>
             <gist-embed hide-footer height="702" no-scroll src="https://gist.github.com/B-3PO/c563dd945d72833b807c2e018f8daa63"></gist-embed>
           </article>
