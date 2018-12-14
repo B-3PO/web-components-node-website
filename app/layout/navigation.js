@@ -27,7 +27,8 @@ module.exports = ({ title }) => html`
     <section>
       <span class="title">Documentation</span>
       <a href="/documentation/getting-started" ${title === 'Getting started' ? 'class="active"' : ''}>Getting started</a>
-      <a href="/documentation/pages" ${title === 'Advanced pages' ? 'class="active"' : ''}>Advanced Pages</a>
+      <a href="/documentation/pages" ${title === 'Building pages' ? 'class="active"' : ''}>Building Pages</a>
+      <a href="/documentation/page-mapper" ${title === 'Page mapper' ? 'class="active"' : ''}>Page mapper</a>
     </section>
   </nav>
 `;

@@ -3,6 +3,8 @@ const router = express.Router();
 const layout = require('./layout');
 const { PageMapper } = require('web-components-node');
 const pageMapper = new PageMapper('app/pages');
+pageMapper.pageNotFount = '404';
+pageMapper.root = 'introduction';
 
 // Page route
 router.get('/*', async (req, res) => {

@@ -32,11 +32,11 @@ setConfig({
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use('*/assets', express.static(path.join(__dirname, './app/public')));
-app.use('/images', express.static(path.join(__dirname, './app/public/images')));
+app.use('*/assets', express.static(path.join(__dirname, './app/public'), { maxAge: '1d' }));
+app.use('/images', express.static(path.join(__dirname, './app/public/images'), { maxAge: '1d' }));
 app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));
-app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json')));
-app.use('/favicon.ico', express.static('./app/public/images/favicon.ico'));
+app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json'), { maxAge: '1d' }));
+app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
 
 app.use('/', require('./app/router'));
 

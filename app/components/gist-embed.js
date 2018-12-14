@@ -24,6 +24,10 @@ customElements.define('gist-embed', class extends HTMLElement {
     return this.getAttribute('height');
   }
 
+  get noScroll() {
+    return this.hasAttribute('no-scroll');
+  }
+
   get hideFooter() {
     return this.hasAttribute('hide-footer');
   }
@@ -54,6 +58,10 @@ customElements.define('gist-embed', class extends HTMLElement {
             margin: -1px;
           }
 
+          body.no-scroll {
+            overflow-y: hidden;
+          }
+
           .gist {
             opacity: 0;
             background: #282c34;
@@ -74,12 +82,21 @@ customElements.define('gist-embed', class extends HTMLElement {
                 var gist = document.querySelector('.gist');
                 if (gist) gist.classList.add('load');
                 ${this.hideFooter ? 'hideFooter();' : ''}
+                ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
 
                 setTimeout(function () {
                   if (!gist) gist = document.querySelector('.gist');
                   if (!gist.classList.contains('load')) gist.classList.add('load');
                   ${this.hideFooter ? 'hideFooter();' : ''}
-                }, 200);
+                  ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
+
+                  setTimeout(function () {
+                    if (!gist) gist = document.querySelector('.gist');
+                    if (!gist.classList.contains('load')) gist.classList.add('load');
+                    ${this.hideFooter ? 'hideFooter();' : ''}
+                    ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
+                  }, 400);
+                }, 400);
               }, 0);
             }
 
@@ -88,8 +105,6 @@ customElements.define('gist-embed', class extends HTMLElement {
 
               if (meta) {
                 document.querySelector('.gist-meta').remove();
-                document.querySelector('.gist-data').css('border-bottom', '0px');
-                document.querySelector('.gist-file').css('border-bottom', '1px solid #ddd');
               }
             }
           </script>
