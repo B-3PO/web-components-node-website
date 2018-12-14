@@ -82,25 +82,24 @@ customElements.define('gist-embed', class extends HTMLElement {
           <script>
             function load() {
               setTimeout(function () {
-                var gist = document.querySelector('.gist');
-                if (gist) gist.classList.add('load');
-                ${this.hideFooter ? 'hideFooter();' : ''}
-                ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
-
-                setTimeout(function () {
-                  if (!gist) gist = document.querySelector('.gist');
-                  if (!gist.classList.contains('load')) gist.classList.add('load');
-                  ${this.hideFooter ? 'hideFooter();' : ''}
-                  ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
-
+                if (!makeAdjustments()) {
                   setTimeout(function () {
-                    if (!gist) gist = document.querySelector('.gist');
-                    if (!gist.classList.contains('load')) gist.classList.add('load');
-                    ${this.hideFooter ? 'hideFooter();' : ''}
-                    ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
+                    if (!makeAdjustments()) {
+                      setTimeout(function () {
+                      }, 300);
+                    }
                   }, 400);
-                }, 400);
+                }
               }, 0);
+            }
+
+            function makeAdjustments() {
+              var gist = document.querySelector('.gist');
+              if (!gist) return false;
+              if (gist) gist.classList.add('load');
+              ${this.hideFooter ? 'hideFooter();' : ''}
+              ${this.noScroll ? 'document.querySelector("body").classList.add("no-scroll");' : ''}
+              return true;
             }
 
             function hideFooter() {
