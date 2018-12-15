@@ -17,23 +17,21 @@ const page = customElements.export('getting-started', class extends HTMLElement 
         </div>
 
         <article>
-          <div class="spacer"></div>
-          <h6 style="padding-left:24px;">Quick links</h6>
-          <ul>
-            <li><anchor-link selector="#a-quick-note" offset="56px">A quick note</anchor-link></li>
-            <li><anchor-link selector="#installation" offset="56px">Installation</anchor-link></li>
-            <li><anchor-link selector="#create-our-fist-page" offset="56px">Create our fist page</anchor-link></li>
-            <li><anchor-link selector="#create-page-layout" offset="56px">Create page layout</anchor-link></li>
-            <li><anchor-link selector="#create-server" offset="56px">Create server</anchor-link></li>
-            <li><anchor-link selector="#lets-run-it" offset="56px">Lets run it</anchor-link></li>
-          </ul>
-
           <article class="into-article">
             <h2>Getting Started</h2>
             <p>
               This quick start guide will show you how to get a web-page built using <a href="https://expressjs.com/" target="new">Expressjs</a>
             </p>
           </article>
+
+          <h6 style="padding-left:24px;">Quick links</h6>
+          <ul>
+            <li><anchor-link selector="#installation" offset="56px">Installation</anchor-link></li>
+            <li><anchor-link selector="#create-our-fist-page" offset="56px">Create our fist page</anchor-link></li>
+            <li><anchor-link selector="#create-page-layout" offset="56px">Create page layout</anchor-link></li>
+            <li><anchor-link selector="#create-server" offset="56px">Create server</anchor-link></li>
+            <li><anchor-link selector="#lets-run-it" offset="56px">Lets run it</anchor-link></li>
+          </ul>
 
           <article class="sub-article" id="a-quick-note">
             <h4>A quick note</h4>

@@ -17,20 +17,19 @@ const page = customElements.export('web-components', class extends HTMLElement {
         </div>
 
         <article>
-          <div class="spacer"></div>
-          <h6 style="padding-left:24px;">Quick links</h6>
-          <ul>
-            <li><anchor-link selector="#include-web-components" offset="56px">Include web components</anchor-link></li>
-            <li><anchor-link selector="#standard-web-components" offset="56px">Standard web component</anchor-link></li>
-            <li><anchor-link selector="#web-component-with-render" offset="56px">Web component with render</anchor-link></li>
-          </ul>
-
           <article class="into-article">
             <h2>Web components</h2>
             <p>
               Below you can see how to build and package web components with your pages.
             </p>
           </article>
+
+          <h6 style="padding-left:24px;">Quick links</h6>
+          <ul>
+            <li><anchor-link selector="#include-web-components" offset="56px">Include web components</anchor-link></li>
+            <li><anchor-link selector="#standard-web-components" offset="56px">Standard web component</anchor-link></li>
+            <li><anchor-link selector="#web-component-with-render" offset="56px">Web component with render</anchor-link></li>
+          </ul>
 
           <article class="sub-article" id="include-web-components">
             <h4>Include web components</h4>

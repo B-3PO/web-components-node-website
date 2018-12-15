@@ -25,18 +25,17 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
         </div>
 
         <article>
-          <div class="spacer"></div>
-          <h6 style="padding-left:24px;">Quick links</h6>
-          <ul>
-            <li><anchor-link selector="#using-with-express" offset="56px">Using with Express</anchor-link></li>
-          </ul>
-
           <article class="into-article">
             <h2>Page mapper</h2>
             <p>
             Page mapper is a module that helps with page routing. It can automatically load and route pages under a folder. You can slo set the default root page and a 404 page.
             </p>
           </article>
+
+          <h6 style="padding-left:24px;">Quick links</h6>
+          <ul>
+            <li><anchor-link selector="#using-with-express" offset="56px">Using with Express</anchor-link></li>
+          </ul>
 
           <article class="sub-article" id="using-with-express">
             <h4>Using with Express</h4>

@@ -17,19 +17,18 @@ const page = customElements.export('building-pages', class extends HTMLElement {
         </div>
 
         <article>
-          <div class="spacer"></div>
-          <h6 style="padding-left:24px;">Quick links</h6>
-          <ul>
-            <li><anchor-link selector="#basic-page" offset="56px">Basic page</anchor-link></li>
-            <li><anchor-link selector="#interactive-page" offset="56px">Interactive page</anchor-link></li>
-          </ul>
-
           <article class="into-article">
             <h2>Building pages</h2>
             <p>
             Below are a list of examples showing you how to build pages witha range of features, including server-side rendering and dynamic html
             </p>
           </article>
+
+          <h6 style="padding-left:24px;">Quick links</h6>
+          <ul>
+            <li><anchor-link selector="#basic-page" offset="56px">Basic page</anchor-link></li>
+            <li><anchor-link selector="#interactive-page" offset="56px">Interactive page</anchor-link></li>
+          </ul>
 
           <article class="sub-article" id="basic-page">
             <h4>Basic page</h4>
