@@ -25,6 +25,12 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
         </div>
 
         <article>
+          <div class="spacer"></div>
+          <h6 style="padding-left:24px;">Quick links</h6>
+          <ul>
+            <li><anchor-link selector="#using-with-express" offset="56px">Using with Express</anchor-link></li>
+          </ul>
+
           <article class="into-article">
             <h2>Page mapper</h2>
             <p>
@@ -32,7 +38,7 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
             </p>
           </article>
 
-          <article class="sub-article">
+          <article class="sub-article" id="using-with-express">
             <h4>Using with Express</h4>
             <div class="spacer"></div>
             <h6>Application Folder structure</h6>

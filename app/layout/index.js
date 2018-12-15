@@ -23,9 +23,8 @@ module.exports = ({ body, title }) => html`
     </head>
 
     <body>
-
       ${browserScripts.includeComponents()}
-
+      
       ${nav({ title })}
       <section class="page-container">
         ${header({ title })}
