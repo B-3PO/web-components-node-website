@@ -3,7 +3,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
-const { setConfig } = require('web-components-node');
+const {
+  setConfig,
+  staticFileHandler
+} = require('web-components-node');
 const IP = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 const PORT = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3001;
 
@@ -43,6 +46,21 @@ app.use('/images', express.static(path.join(__dirname, './app/public/images'), {
 app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));
 app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json'), { maxAge: '1d' }));
 app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
+
+app.use('/wcn', (req, res) => {
+  res.type('text/javascript');
+  res.send(staticFileHandler({
+    host: 'http://localhost:3001',
+    fileName: req.path.split('/').pop()
+  }));
+});
+app.use('/service-worker.js', (req, res) => {
+  res.type('text/javascript');
+  res.send(staticFileHandler({
+    host: 'http://localhost:3001',
+    fileName: 'service-worker.js'
+  }));
+});
 
 app.use('/', require('./app/router'));
 

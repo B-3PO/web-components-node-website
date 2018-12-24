@@ -4,12 +4,6 @@ const {
 } = require('web-components-node');
 
 customElements.define('expander-header', class extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = this.template();
-  }
-
   connectedCallback() {
     this.parentNode.registerHeader(this);
   }

@@ -19,7 +19,8 @@ module.exports = ({ body, title }) => html`
       <link rel="manifest" href="/manifest.json">
       <link rel="stylesheet" href="/assets/styles/main.css">
       <link rel="stylesheet" href="/assets/styles/page.css">
-      ${inject.scripts()}
+      <script src="http://localhost:3001/wcn/main.js"></script>
+      <script src="http://localhost:3001/wcn/service-worker-loader.js"></script>
     </head>
 
     <body>
