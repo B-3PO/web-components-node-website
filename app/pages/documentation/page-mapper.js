@@ -19,7 +19,7 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
         }
       </style>
 
-      <div id="content" class="center-container">
+      <render-block class="page-container">
         <div class="disclaimer-container">
           Disclaimer: This is a beta version
         </div>
@@ -64,7 +64,7 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
 
           <!-- <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a> -->
         </article>
-      </div>
+      </render-block>
     `;
   }
 });

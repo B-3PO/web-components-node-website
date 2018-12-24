@@ -31,6 +31,12 @@ module.exports = ({ title }) => html`
       <a href="/documentation/page-mapper" ${title === 'Page mapper' ? 'class="active"' : ''}>Page mapper</a>
       <a href="/documentation/web-components" ${title === 'Web components' ? 'class="active"' : ''}>Web componenets</a>
     </section>
+
+
+    <section>
+      <span class="title">Lets build a site</span>
+      <a href="/lets-build/server" ${title === 'Build a server' ? 'class="active"' : ''}>Build a server</a>
+    </section>
   </nav>
 `;
 

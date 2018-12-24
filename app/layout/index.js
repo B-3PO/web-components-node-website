@@ -1,5 +1,5 @@
 const {
-  browserScripts,
+  inject,
   html
 } = require('web-components-node');
 const header = require('./header');
@@ -19,12 +19,12 @@ module.exports = ({ body, title }) => html`
       <link rel="manifest" href="/manifest.json">
       <link rel="stylesheet" href="/assets/styles/main.css">
       <link rel="stylesheet" href="/assets/styles/page.css">
-      ${browserScripts.include()}
+      ${inject.scripts()}
     </head>
 
     <body>
-      ${browserScripts.includeComponents()}
-      
+      ${inject.components()}
+
       ${nav({ title })}
       <section class="page-container">
         ${header({ title })}

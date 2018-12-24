@@ -17,7 +17,7 @@ const page = customElements.export('web-components-page', class extends HTMLElem
 
       </style>
 
-      <div id="content" class="center-container">
+      <render-block class="page-container">
 
         <article>
 
@@ -55,7 +55,7 @@ const page = customElements.export('web-components-page', class extends HTMLElem
           </article>
 
         </article>
-      </div>
+      </render-block>
     `;
   }
 });
