@@ -88,4 +88,12 @@ customElements.define('expander-content', class extends HTMLElement {
       <slot></slot>
     `;
   }
+
+  externalCSS() {
+    return `
+      expander-content {
+        display: none;
+      }
+    `;
+  }
 });

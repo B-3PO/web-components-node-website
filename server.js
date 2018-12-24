@@ -48,18 +48,20 @@ app.use('/manifest.json', express.static(path.join(__dirname, './app/public/mani
 app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
 
 app.use('/wcn', (req, res) => {
-  res.type('text/javascript');
-  res.send(staticFileHandler({
+  const data = staticFileHandler({
     host: 'http://localhost:3001',
     fileName: req.path.split('/').pop()
-  }));
+  });
+  res.type(data.mime);
+  res.send(data.content);
 });
 app.use('/service-worker.js', (req, res) => {
-  res.type('text/javascript');
-  res.send(staticFileHandler({
+  const data = staticFileHandler({
     host: 'http://localhost:3001',
     fileName: 'service-worker.js'
-  }));
+  });
+  res.type('text/javascript');
+  res.send(data.content);
 });
 
 app.use('/', require('./app/router'));
