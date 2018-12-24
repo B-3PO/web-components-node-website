@@ -5,7 +5,7 @@ const path = require('path');
 const app = express();
 const {
   setConfig,
-  staticFileHandler
+  fileHandler
 } = require('web-components-node');
 const IP = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
 const PORT = process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 3001;
@@ -36,7 +36,7 @@ setConfig({
    * default: true
    * user built in service worker to manage cache
    */
-  serviceWorker: false
+  serviceWorker: true
 });
 
 app.use(morgan('dev'));
@@ -47,22 +47,24 @@ app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.
 app.use('/manifest.json', express.static(path.join(__dirname, './app/public/manifest.json'), { maxAge: '1d' }));
 app.use('/favicon.ico', express.static('./app/public/images/favicon.ico', { maxAge: '1d' }));
 
-app.use('/wcn', (req, res) => {
-  const data = staticFileHandler({
-    host: 'http://localhost:3001',
-    fileName: req.path.split('/').pop()
-  });
-  res.type(data.mime);
-  res.send(data.content);
-});
-app.use('/service-worker.js', (req, res) => {
-  const data = staticFileHandler({
-    host: 'http://localhost:3001',
-    fileName: 'service-worker.js'
-  });
-  res.type('text/javascript');
-  res.send(data.content);
-});
+app.use('/', fileHandler.expressFileHandler);
+
+// app.use('/wcn', (req, res) => {
+//   const data = staticFileHandler({
+//     host: 'http://localhost:3001',
+//     fileName: req.path.split('/').pop()
+//   });
+//   res.type(data.mime);
+//   res.send(data.content);
+// });
+// app.use('/service-worker.js', (req, res) => {
+//   const data = staticFileHandler({
+//     host: 'http://localhost:3001',
+//     fileName: 'service-worker.js'
+//   });
+//   res.type('text/javascript');
+//   res.send(data.content);
+// });
 
 app.use('/', require('./app/router'));
 
