@@ -33,22 +33,25 @@ const page = customElements.export('web-components', class extends HTMLElement {
 
           <article class="sub-article" id="include-web-components">
             <h4>Include web components</h4>
-            <p>You can use the 'browserScripts.includeComponents' to include webcomponents, but it is reecomended that you package them up with something like webpack</p>
-            <gist-embed hide-footer height="416" no-scroll src="https://gist.github.com/B-3PO/95585aae083dd3c6a7ef9c114d1a423c"></gist-embed>
+            <p>You can use the file handlers to include your components</p>
+            <div class="direction">Include file handler in server</div>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/95585aae083dd3c6a7ef9c114d1a423c"></gist-embed>
+            <div class="direction">inclide css and js in html head</div>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c147495c0cebaa6862e8be840818b301"></gist-embed>
           </article>
 
           <article class="sub-article" id="standard-web-components">
             <h4>Standard web component</h4>
-            <gist-embed hide-footer height="570" no-scroll src="https://gist.github.com/B-3PO/de097083caa213b7331c2020ac50eb67"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/de097083caa213b7331c2020ac50eb67"></gist-embed>
           </article>
 
           <article class="sub-article" id="web-component-with-render">
             <h4>Web component with render</h4>
             <p>We are using the 'defineWithRender' method. This will provide the component with a render method. We can now re-render when thee list attribute is updated</p>
-            <gist-embed hide-footer height="1034" no-scroll src="https://gist.github.com/B-3PO/ce89a3c5ab2e7df601cb39b84ad02737"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/ce89a3c5ab2e7df601cb39b84ad02737"></gist-embed>
           </article>
 
-          <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a>
+          <a class="button" href="/lets-build/server">Next: Lets build - 1. Layout</a>
         </article>
       </render-block>
     `;

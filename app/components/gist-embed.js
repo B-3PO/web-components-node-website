@@ -10,6 +10,8 @@ customElements.define('gist-embed', class extends HTMLElement {
     this.style.background = '#282c34';
     this.style.display = 'block';
     this.style.border = '1px solid #CCC';
+    this.autoHeight = true;
+    this.id = `gist-iframe-${Math.random()}`;
     if (this.src) this.buildIframe();
   }
 
@@ -34,6 +36,7 @@ customElements.define('gist-embed', class extends HTMLElement {
   }
 
   set height(value) {
+      this.autoHeight = false;
     this.children[0].style.height =  String(value).replace('px', '') + 'px';
   }
 
@@ -43,7 +46,12 @@ customElements.define('gist-embed', class extends HTMLElement {
 
   buildIframe() {
     const gistFrame = document.createElement('iframe');
+    gistFrame.setAttribute('id', this.id);
     gistFrame.setAttribute('width', '100%');
+    const self = this;
+    gistFrame.onload = function () {
+      if (self.autoHeight) this.height = this.contentDocument.querySelector('body').scrollHeight - 60 + 'px';
+    };
     gistFrame.title = "code";
     gistFrame.style.border = 'none';
     this.appendChild(gistFrame);

@@ -1,5 +1,4 @@
 const {
-  inject,
   html
 } = require('web-components-node');
 const header = require('./header');

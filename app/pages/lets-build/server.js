@@ -26,26 +26,26 @@ const page = customElements.export('build-server', class extends HTMLElement {
 
           <h6 style="padding-left:24px;">Quick links</h6>
           <ul>
-            <li><anchor-link selector="#installation" offset="56px">Installation</anchor-link></li>
-            <li><anchor-link selector="#create-our-fist-page" offset="56px">Create our fist page</anchor-link></li>
-            <li><anchor-link selector="#create-page-layout" offset="56px">Create page layout</anchor-link></li>
-            <li><anchor-link selector="#create-server" offset="56px">Create server</anchor-link></li>
-            <li><anchor-link selector="#lets-run-it" offset="56px">Lets run it</anchor-link></li>
+            <li><anchor-link selector="#setup-install" offset="56px">Setup and install</anchor-link></li>
+            <li><anchor-link selector="#create-server-file" offset="56px">Create server file</anchor-link></li>
+            <li><a href="/lets-build/layout">Next: 3. Main layout</a></li>
           </ul>
 
-          <article class="sub-article" id="a-quick-note">
+          <article class="sub-article" id="setup-install">
             <h4>Setup and install</h4>
             <p>Lets get the app created!</p>
             <div class="direction">Install packages</div>
-            <gist-embed hide-footer height="40" no-scroll src="https://gist.github.com/B-3PO/d0c9d84502c6a2bf9f8477a57b95d238"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/d0c9d84502c6a2bf9f8477a57b95d238"></gist-embed>
           </article>
 
-          <article class="sub-article" id="a-quick-note">
+          <article class="sub-article" id="create-server-file">
             <h4>Create server file</h4>
             <p>Build main express app file</p>
             <div class="direction">Create server file <b>/server.js</b></div>
-            <gist-embed hide-footer height="284" no-scroll src="https://gist.github.com/B-3PO/f0c8ab86789e591e0d5a147a055940c6"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/f0c8ab86789e591e0d5a147a055940c6"></gist-embed>
           </article>
+
+          <a class="button" href="/lets-build/layout">Next: Lets build - 2. Layout</a>
         </article>
       </render-block>
     `;
