@@ -4,7 +4,7 @@ const {
   html
 } = require('web-components-node');
 
-const page = customElements.export('build-server', class extends HTMLElement {
+const page = customElements.export('layout-page', class extends HTMLElement {
   template() {
     return html`
       <style>
@@ -33,7 +33,7 @@ const page = customElements.export('build-server', class extends HTMLElement {
           <article class="sub-article" id="layout">
             <h4>Main layout</h4>
             <p>This will wrap all the pages</p>
-            <div class="direction">create file: layout.js </div>
+            <div class="direction">create file: <b>layout.js</b></div>
             <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/d27a2850a47156f3808e69dd5336fb5c"></gist-embed>
           </article>
 
@@ -46,6 +46,6 @@ const page = customElements.export('build-server', class extends HTMLElement {
 
 
 module.exports = async () => ({
-  title: 'Add the layout',
+  title: 'Layout',
   body: page.build()
 });

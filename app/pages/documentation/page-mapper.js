@@ -35,20 +35,14 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
           <h6 style="padding-left:24px;">Quick links</h6>
           <ul>
             <li><anchor-link selector="#using-with-express" offset="56px">Using with Express</anchor-link></li>
+            <li><a href="/documentation/web-components">Next: Components</a></li>
           </ul>
 
           <article class="sub-article" id="using-with-express">
             <h4>Using with Express</h4>
             <div class="spacer"></div>
             <h6>Application Folder structure</h6>
-            <p class="direction">
-              package.json<br />
-              pages <b>/</b><br />
-              <span class="indent-1">home.js</span><br />
-              <span class="indent-1">404.js</span><br />
-              <span class="indent-1">nested <b>/</b></span><br />
-              <span class="indent-2">one.js</span>
-            </p>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/4dc430ebb41134d9134747c45c645c77"></gist-embed>
 
             <div class="spacer"></div>
             <h6>Page routes</h6>
@@ -59,10 +53,10 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
               4. <b>/404</b><br />
               5. <b>/none-existing-page</b> <i>this will redirect to 404</i>
             </p>
-            <gist-embed hide-footer height="702" no-scroll src="https://gist.github.com/B-3PO/c563dd945d72833b807c2e018f8daa63"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c563dd945d72833b807c2e018f8daa63"></gist-embed>
           </article>
 
-          <!-- <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a> -->
+          <a class="button" href="/documentation/web-components">Next: Components</a>
         </article>
       </render-block>
     `;

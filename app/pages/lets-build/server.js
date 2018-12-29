@@ -54,6 +54,6 @@ const page = customElements.export('build-server', class extends HTMLElement {
 
 
 module.exports = async () => ({
-  title: 'Build a server',
+  title: 'Server',
   body: page.build()
 });

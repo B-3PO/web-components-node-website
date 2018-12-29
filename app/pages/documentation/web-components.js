@@ -36,7 +36,7 @@ const page = customElements.export('web-components', class extends HTMLElement {
             <p>You can use the file handlers to include your components</p>
             <div class="direction">Include file handler in server</div>
             <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/95585aae083dd3c6a7ef9c114d1a423c"></gist-embed>
-            <div class="direction">inclide css and js in html head</div>
+            <div class="direction">include styles, scripts, and components in html head</div>
             <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c147495c0cebaa6862e8be840818b301"></gist-embed>
           </article>
 
@@ -47,11 +47,11 @@ const page = customElements.export('web-components', class extends HTMLElement {
 
           <article class="sub-article" id="web-component-with-render">
             <h4>Web component with render</h4>
-            <p>We are using the 'defineWithRender' method. This will provide the component with a render method. We can now re-render when thee list attribute is updated</p>
+            <p>We are using the 'defineWithRender' method. This will provide the component with a render method. We can now re-render when the list attribute is updated</p>
             <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/ce89a3c5ab2e7df601cb39b84ad02737"></gist-embed>
           </article>
 
-          <a class="button" href="/lets-build/server">Next: Lets build - 1. Layout</a>
+          <a class="button" href="/lets-build/server">Next: Lets build</a>
         </article>
       </render-block>
     `;
