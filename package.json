@@ -15,7 +15,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
+    "highlightjs": "^9.12.0",
+    "highlightjs-line-numbers.js": "^2.6.0",
     "morgan": "^1.9.1",
-    "web-components-node": "file:../web-components-node"
+    "web-components-node": "^0.3.0-beta.0"
   }
 }
