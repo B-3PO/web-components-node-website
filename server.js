@@ -41,6 +41,7 @@ setConfig({
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use('*/prismjs', express.static(path.join(__dirname, './node_modules/prismjs'), { maxAge: '1d' }));
 app.use('*/assets', express.static(path.join(__dirname, './app/public'), { maxAge: '1d' }));
 app.use('/images', express.static(path.join(__dirname, './app/public/images'), { maxAge: '1d' }));
 app.use('/robots.txt', express.static(path.join(__dirname, './app/public/robots.txt')));

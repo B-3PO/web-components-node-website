@@ -28,8 +28,10 @@ module.exports = ({ head, body, title }) => html`
       ${nav({ title })}
       <section class="page-container">
         ${header({ title })}
-        <section class="body-container">${body}<section>
-      <section>
+        <section class="body-container">
+          ${body}
+        </section>
+      </section>
     </body>
   </html>
 `;

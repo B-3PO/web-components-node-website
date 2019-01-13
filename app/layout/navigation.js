@@ -42,6 +42,12 @@ module.exports = ({ title }) => html`
       <a href="/lets-build/component" ${title === 'Component' ? 'class="active"' : ''}><b>5</b>&nbsp Component</a>
       <a href="/lets-build/wrap-up" ${title === 'Wrap up' ? 'class="active"' : ''}>Wrap up</a>
     </section>
+
+    <section>
+      <span class="title">Examples</span>
+      <a href="/examples/loading-client" ${title === 'Loading data on the client' ? 'class="active"' : ''}>Client side laoding</a>
+      <a href="/examples/loading-server" ${title === 'Loading and rendering on the server' ? 'class="active"' : ''}>Server side loading</a>
+    </section>
   </nav>
 `;
 
