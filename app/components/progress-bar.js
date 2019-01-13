@@ -20,11 +20,7 @@ customElements.define('progress-bar', class extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     this[name] = newValue;
   }
-
-  get type() {
-    return this.hasAttribute('type') ? this.getAttribute('type') : 'query';
-  }
-
+  
   get bar() {
     if (!this._bar) this._bar = this.shadowRoot.querySelector('.bar');
     return this._bar;

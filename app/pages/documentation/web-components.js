@@ -5,6 +5,10 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('web-components', class extends HTMLElement {
+  static get title() {
+    return 'Web components';
+  }
+
   template() {
     return html`
       <style>
@@ -58,7 +62,4 @@ const page = customElements.export('web-components', class extends HTMLElement {
   }
 });
 
-module.exports = async () => ({
-  title: 'Web components',
-  body: page.build()
-});
+module.exports = async () => page.build();

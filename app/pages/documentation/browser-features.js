@@ -6,7 +6,7 @@ const {
 
 const page = customElements.export('building-pages', class extends HTMLElement {
   static get title() {
-    return 'Building pages';
+    return 'Browser features';
   }
 
   template() {

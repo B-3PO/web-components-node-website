@@ -7,6 +7,7 @@ const {
   setConfig,
   fileHandler
 } = require('web-components-node');
+const IP = process.env.IP || '127.0.0.1';
 const PORT = process.env.PORT || 3001;
 
 setConfig({
@@ -56,6 +57,6 @@ app.use((err, req, res, next) => {
   res.send({ error: err.message });
 });
 
-app.listen(PORT, () => console.log(`Example app running on port ${PORT}`));
+app.listen(PORT, IP, () => console.log(`Example app running on port ${PORT}`));
 
 module.exports = app;

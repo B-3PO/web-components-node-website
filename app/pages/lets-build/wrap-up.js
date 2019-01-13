@@ -5,6 +5,10 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('wrap-up', class extends HTMLElement {
+  static get title() {
+    return 'Wrap up';
+  }
+
   template() {
     return html`
       <style>
@@ -27,7 +31,4 @@ const page = customElements.export('wrap-up', class extends HTMLElement {
   }
 });
 
-module.exports = async () => ({
-  title: 'Wrap up',
-  body: page.build()
-});
+module.exports = async () => page.build();

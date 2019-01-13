@@ -5,6 +5,10 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('components-page', class extends HTMLElement {
+  static get title() {
+    return 'Component';
+  }
+
   connectedCallback() {
     const percentProgressBar = this.shadowRoot.querySelector('#percent-progress-bar');
     let percent = 0;
@@ -68,8 +72,4 @@ const page = customElements.export('components-page', class extends HTMLElement 
   }
 });
 
-
-module.exports = async () => ({
-  title: 'Component',
-  body: page.build()
-});
+module.exports = async () => page.build();

@@ -5,7 +5,7 @@ const header = require('./header');
 const nav = require('./navigation');
 require('../components');
 
-module.exports = ({ body, title }) => html`
+module.exports = ({ head, body, title }) => html`
   <!doctype html>
   <html lang="en">
     <head>
@@ -21,6 +21,7 @@ module.exports = ({ body, title }) => html`
 
       <link rel="stylesheet" href="http://localhost:3001/wcn.css">
       <script src="http://localhost:3001/wcn.js"></script>
+      ${head}
     </head>
 
     <body>

@@ -6,16 +6,21 @@ const {
 customElements.define('anchor-link', class extends HTMLElement {
   constructor() {
     super();
-    this.style.cssText = `
-      display: inline-block;
-      font-size: 1.6rem;
-      font-weight: lighter;
-      color: #7499cb;
-      cursor: pointer;
-    `;
     this.addEventListener('click', this.click.bind(this));
     this.addEventListener('mouseover', () => this.style.background = 'aliceblue');
     this.addEventListener('mouseout', () => this.style.background = 'none');
+  }
+  
+  externalCSS() {
+    return `
+      anchor-link {
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: lighter;
+        color: #7499cb;
+        cursor: pointer;
+      }
+    `;
   }
 
   click() {

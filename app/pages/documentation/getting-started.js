@@ -5,10 +5,15 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('getting-started', class extends HTMLElement {
+  static get title() {
+    return 'Getting started';
+  }
+
   template() {
     return html`
       <style>
         @import 'assets/styles/page.css';
+        @import 'http://localhost:3001/highlightjs/styles/monokai-sublime.css';
       </style>
 
       <render-block class="page-container">
@@ -95,7 +100,4 @@ const page = customElements.export('getting-started', class extends HTMLElement 
   }
 });
 
-module.exports = async () => ({
-  title: 'Getting started',
-  body: page.build()
-});
+module.exports = async () => page.build();

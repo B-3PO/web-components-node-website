@@ -5,6 +5,10 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('page-mapper', class extends HTMLElement {
+  static get title() {
+    return 'Page mapper';
+  }
+
   template() {
     return html`
       <style>
@@ -63,7 +67,4 @@ const page = customElements.export('page-mapper', class extends HTMLElement {
   }
 });
 
-module.exports = async () => ({
-  title: 'Page mapper',
-  body: page.build()
-});
+module.exports = async () => page.build();

@@ -5,6 +5,10 @@ const {
 } = require('web-components-node');
 
 const page = customElements.export('interactive-page', class extends HTMLElement {
+  static get title() {
+    return 'Interactive page';
+  }
+
   template() {
     return html`
       <style>
@@ -63,8 +67,4 @@ const page = customElements.export('interactive-page', class extends HTMLElement
   }
 });
 
-
-module.exports = async () => ({
-  title: 'Interactive page',
-  body: page.build()
-});
+module.exports = async () => page.build();

@@ -13,11 +13,11 @@ customElements.define('expander-header', class extends HTMLElement {
   }
 
   open() {
-    this.arrow.open();
+    if (this.arrow) this.arrow.open();
   }
 
   close() {
-    this.arrow.close();
+    if (this.arrow) this.arrow.close();
   }
 
   template() {
@@ -49,17 +49,6 @@ customElements.define('expander-header', class extends HTMLElement {
         :host(:hover) {
           background-color: rgba(158,158,158,0.2);
         }
-
-        ::slotted(.expander-label) {
-          flex: 1;
-          color: #b3b3b3;
-          font-weight: 400;
-        }
-
-        ::slotted(.expander-label.active) {
-          color: #b3b3b3;
-          font-weight: 400;
-        }
       </style>
       <slot></slot>
     `;
@@ -89,6 +78,17 @@ customElements.define('expander-header', class extends HTMLElement {
         margin: 0;
         line-height: 18px;
         padding: 12px 24px;
+      }
+
+      expander-header .expander-label {
+        flex: 1;
+        color: #b3b3b3;
+        font-weight: 400;
+      }
+
+      expander-header .expander-label.active {
+        color: #b3b3b3;
+        font-weight: 400;
       }
     `;
   }

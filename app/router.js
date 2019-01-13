@@ -8,8 +8,8 @@ pageMapper.root = 'introduction';
 
 // Page route
 router.get('/*', async (req, res) => {
-  const { body, title } = await pageMapper.findPage(req.path)();
-  res.send(layout({ body, title }));
+  const { body, title, head } = await pageMapper.findPage(req.path)();
+  res.send(layout({ body, title, head }));
 });
 
 module.exports = router;

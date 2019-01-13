@@ -12,6 +12,9 @@ customElements.define('gist-embed', class extends HTMLElement {
     this.style.border = '1px solid #CCC';
     this.autoHeight = true;
     this.id = `gist-iframe-${Math.random()}`;
+  }
+
+  connectedCallback() {
     if (this.src) this.buildIframe();
   }
 
@@ -36,8 +39,8 @@ customElements.define('gist-embed', class extends HTMLElement {
   }
 
   set height(value) {
-      this.autoHeight = false;
-    this.children[0].style.height =  String(value).replace('px', '') + 'px';
+    this.autoHeight = false;
+    if (this.children[0]) this.children[0].style.height =  String(value).replace('px', '') + 'px';
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
