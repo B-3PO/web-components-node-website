@@ -1,10 +1,15 @@
 const {
   customElements,
-  HTMLElement,
-  html
+  HTMLElementExtended,
+  html,
+  css
 } = require('web-components-node');
 
-customElements.define('expander-arrow', class extends HTMLElement {
+customElements.define('expander-arrow', class extends HTMLElementExtended {
+  constructor() {
+    super();
+  }
+
   connectedCallback() {
     this.parentNode.registerArrow(this);
   }
@@ -18,12 +23,14 @@ customElements.define('expander-arrow', class extends HTMLElement {
   }
 
   externalCSS() {
-    return `
+    return css`
       expander-arrow {
+        float: right;
         border: solid #b3b3b3;
         border-width: 0 2px 2px 0;
         display: inline-block;
         padding: 3px;
+        margin-top: 7px;
         transform: rotate(-135deg);
         -webkit-transform: rotate(-135deg);
         transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);

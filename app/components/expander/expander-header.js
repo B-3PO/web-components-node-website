@@ -1,9 +1,16 @@
 const {
   customElements,
-  HTMLElement
+  HTMLElementExtended,
+  css,
+  html
 } = require('web-components-node');
 
-customElements.define('expander-header', class extends HTMLElement {
+customElements.define('expander-header', class extends HTMLElementExtended {
+  constructor() {
+    super();
+    this.cloneTemplate();
+  }
+
   connectedCallback() {
     this.parentNode.registerHeader(this);
   }
@@ -20,46 +27,16 @@ customElements.define('expander-header', class extends HTMLElement {
     if (this.arrow) this.arrow.close();
   }
 
-  template() {
+  html() {
     return html`
-      <style>
-        :host {
-          flex-direction: row;
-          box-sizing: border-box;
-          display: flex;
-          position: relative;
-          cursor: pointer;
-          vertical-align: middle;
-          align-items: center;
-          user-select: none;
-          outline: none;
-          border: 0;
-          background: transparent;
-          font-size: 1.5rem;
-          overflow: hidden;
-          transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
-          border-radius: 0;
-          white-space: nowrap;
-
-          margin: 0;
-          line-height: 18px;
-          padding: 12px 24px;
-        }
-
-        :host(:hover) {
-          background-color: rgba(158,158,158,0.2);
-        }
-      </style>
       <slot></slot>
     `;
   }
 
   externalCSS() {
-    return `
+    return css`
       expander-header {
-        flex-direction: row;
-        box-sizing: border-box;
-        display: flex;
+        display: block;
         position: relative;
         cursor: pointer;
         vertical-align: middle;
@@ -81,7 +58,6 @@ customElements.define('expander-header', class extends HTMLElement {
       }
 
       expander-header .expander-label {
-        flex: 1;
         color: #b3b3b3;
         font-weight: 400;
       }

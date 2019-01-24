@@ -1,12 +1,14 @@
 const {
   customElements,
-  HTMLElement,
-  html
+  HTMLElementExtended,
+  html,
+  css
 } = require('web-components-node');
 
-customElements.define('progress-bar', class extends HTMLElement {
+customElements.define('progress-bar', class extends HTMLElementExtended {
   constructor() {
     super();
+    this.cloneTemplate();
   }
 
   connectedCallback() {
@@ -20,7 +22,7 @@ customElements.define('progress-bar', class extends HTMLElement {
   attributeChangedCallback(name, _oldValue, newValue) {
     this[name] = newValue;
   }
-  
+
   get bar() {
     if (!this._bar) this._bar = this.shadowRoot.querySelector('.bar');
     return this._bar;
@@ -36,45 +38,48 @@ customElements.define('progress-bar', class extends HTMLElement {
     this.bar.style.width = `${value}%`;
   }
 
-  template() {
+  css() {
+    return css`
+      :host {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 6px;
+        padding-top: 0;
+        margin-bottom: 0;
+        background-color: #d4e5ff;
+      }
+
+      .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 6px;
+        background-color: #7499cb;
+      }
+
+      :host(.query) .bar {
+        transition: all 0.2s linear;
+        animation: query .8s infinite cubic-bezier(0.390, 0.575, 0.565, 1.000);
+      }
+
+      @keyframes query {
+        0% {
+          opacity: 1;
+          transform: translateX(35%) scale(.3, 1);
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(-50%) scale(0, 1);
+        }
+      }
+    `;
+  }
+
+  html() {
     return html`
-      <style>
-        :host {
-          display: block;
-          position: relative;
-          width: 100%;
-          height: 6px;
-          padding-top: 0;
-          margin-bottom: 0;
-          background-color: #d4e5ff;
-        }
-
-        .bar {
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          width: 100%;
-          height: 6px;
-          background-color: #7499cb;
-        }
-
-        :host(.query) .bar {
-          transition: all 0.2s linear;
-          animation: query .8s infinite cubic-bezier(0.390, 0.575, 0.565, 1.000);
-        }
-
-        @keyframes query {
-          0% {
-            opacity: 1;
-            transform: translateX(35%) scale(.3, 1);
-          }
-          100% {
-            opacity: 0;
-            transform: translateX(-50%) scale(0, 1);
-          }
-        }
-      </style>
       <div class="bar"></div>
     `;
   }

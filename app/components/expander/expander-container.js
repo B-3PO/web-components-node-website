@@ -1,10 +1,14 @@
 const {
   customElements,
-  HTMLElement,
+  HTMLElementExtended,
   html
 } = require('web-components-node');
 
-customElements.define('expander-container', class extends HTMLElement {
+customElements.define('expander-container', class extends HTMLElementExtended {
+  constructor() {
+    super();
+  }
+
   disconnectedCallback() {
     if (this.header) this.header.removeEventListener('click', () => this.toggle);
   }

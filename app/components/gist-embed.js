@@ -1,10 +1,10 @@
 // TODO hide scroll bar when user has a mouse wheel
 const {
   customElements,
-  HTMLElement
+  HTMLElementExtended
 } = require('web-components-node');
 
-customElements.define('gist-embed', class extends HTMLElement {
+customElements.define('gist-embed', class extends HTMLElementExtended {
   constructor() {
     super();
     this.style.background = '#282c34';

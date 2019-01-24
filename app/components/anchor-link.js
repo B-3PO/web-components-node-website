@@ -1,18 +1,19 @@
 const {
   customElements,
-  HTMLElement
+  HTMLElementExtended,
+  css
 } = require('web-components-node');
 
-customElements.define('anchor-link', class extends HTMLElement {
+customElements.define('anchor-link', class extends HTMLElementExtended {
   constructor() {
     super();
     this.addEventListener('click', this.click.bind(this));
     this.addEventListener('mouseover', () => this.style.background = 'aliceblue');
     this.addEventListener('mouseout', () => this.style.background = 'none');
   }
-  
+
   externalCSS() {
-    return `
+    return css`
       anchor-link {
         display: inline-block;
         font-size: 1.6rem;
@@ -27,7 +28,6 @@ customElements.define('anchor-link', class extends HTMLElement {
     let anchor = this.getAnchor();
     let scrollElement = this.getScrollElement();
     let count = anchor.offsetTop - scrollElement.scrollTop - this.offset;
-    console.log(scrollElement.getBoundingClientRect())
     scrollElement.scrollBy({
       top: count,
       left: 0,

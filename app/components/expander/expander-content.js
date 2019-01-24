@@ -1,14 +1,15 @@
 const {
   customElements,
-  HTMLElement
+  HTMLElementExtended,
+  css,
+  html
 } = require('web-components-node');
 
-customElements.define('expander-content', class extends HTMLElement {
+customElements.define('expander-content', class extends HTMLElementExtended {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.innerHTML = this.template();
     if (this.hasAttribute('height')) this.height = this.getAttribute('height').replace('px', '');
+    this.cloneTemplate();
   }
 
   connectedCallback() {
@@ -68,29 +69,31 @@ customElements.define('expander-content', class extends HTMLElement {
     }
   }
 
-  template() {
+  css() {
+    return css`
+      :host {
+        display: block;
+        overflow: hidden;
+        opacity: 0;
+        max-height: 0;
+        transition: max-height 0.12s cubic-bezier(0.25, 0.8, 0.25, 1),
+                    opacity 0.12s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      :host(.show) {
+        display: block;
+      }
+    `;
+  }
+
+  html() {
     return html`
-      <style>
-        :host {
-          display: block;
-          overflow: hidden;
-          opacity: 0;
-          max-height: 0;
-          transition: max-height 0.12s cubic-bezier(0.25, 0.8, 0.25, 1),
-                      opacity 0.12s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-
-        :host(.show) {
-          display: block;
-        }
-      </style>
-
       <slot></slot>
     `;
   }
 
   externalCSS() {
-    return `
+    return css`
       expander-content {
         display: none;
       }

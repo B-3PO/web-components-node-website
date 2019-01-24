@@ -1,86 +1,84 @@
 const {
-  customElements,
-  HTMLElement,
+  Page,
   html
 } = require('web-components-node');
 
-
-const page = customElements.export('loading-server', class extends HTMLElement {
+const page = new class LoadingServer extends Page {
   constructor() {
     super();
     this.data = [];
   }
 
-  static get title() {
-    return 'Loading and rendering on the server'
+  // Page title. Returnes from build()
+  get title() {
+    return 'Loading data on the client';
   }
 
-  template() {
+  html() {
     return html`
-      <style>
-        @import 'assets/styles/page.css';
+      <div class="disclaimer-container">
+        Disclaimer: This is a beta version
+      </div>
 
-        .styled-list {
-          padding: 0;
-          margin: 0;
-        }
+      <article>
+        <article class="into-article">
+          <h2>Load data client side</h2>
+          <p>In this example we will pre render the page with a progress bar. The client will then load data and re render the page to show the data</p>
+        </article>
 
-        .styled-list li {
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          padding: 0 16px;
-          flex-direction: row-reverse;
-          justify-content: space-around;
-          line-height: 48px;
-        }
+        <article class="sub-article">
+          <h4>Data</h4>
 
-        .styled-list li .list-text {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          box-sizing: border-box;
-          overflow: hidden;
-          padding: 0;
-        }
-
-        .styled-list li:hover {
-          background: #DDDDDD;
-        }
-      </style>
-
-      <render-block>
-        <div class="disclaimer-container">
-          Disclaimer: This is a beta version
-        </div>
+          <ol class="styled-list">
+            ${this.data.map(d => (html`
+              <li id="list-id-${d.id}">
+                <span class="list-text">${d.label}</span>
+              </li>
+            `)).join('\n')}
+          </ol>
+        </article>
 
         <article>
-          <article class="into-article">
-            <h2>Load and render server side</h2>
-            <p>In this example we will load the data pre render the entire page</p>
-          </article>
-
-          <article class="sub-article">
-            <h4>Data</h4>
-
-            <ol class="styled-list">
-              ${this.data.map(d => (html`
-                <li id="list-id-${d.id}">
-                  <span class="list-text">${d.label}</span>
-                </li>
-              `)).join('\n')}
-            </ol>
-          </article>
-
-          <article>
-            <h4>Page code</h4>
-            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/e345eaf089f53d031b7933be62766c75"></gist-embed>
-          </article>
+          <h4>Page code</h4>
+          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/b92a43b1ed94b390b2b5f197b0bb5d5f"></gist-embed>
         </article>
-      </render-block>
+      </article>
     `;
   }
-});
+
+  // This is a convinience method. It is suggested you load your css in a file
+  css() {
+    return `
+      .styled-list {
+        padding: 0;
+        margin: 0;
+      }
+
+      .styled-list li {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        line-height: 48px;
+      }
+
+      .styled-list li .list-text {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .styled-list li:hover {
+        background: #DDDDDD;
+      }
+    `;
+  }
+};
 
 async function theData() {
   // use timeout to simulate an endpoint loading
@@ -106,5 +104,5 @@ async function theData() {
 
 module.exports = async () => {
   const data = await theData();
-  return page.build({ data });
+  return page.build({ data }); // { title, head, body }
 };
