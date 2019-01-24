@@ -12,12 +12,6 @@ const PORT = process.env.PORT || 3001;
 
 setConfig({
   /*
-   * default: 'template'
-   * The default method name for templates used by the template renderer
-   */
-  templateMethod: 'template',
-
-  /*
    * default: true
    * This will memoize certain methods to prevent unnecessary processing
    * This is essantially equal to static file performance after the first request

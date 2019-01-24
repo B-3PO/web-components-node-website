@@ -53,7 +53,7 @@ const page = new class LoadingClient extends Page {
 
           <div class="spacer"></div>
           <h5>Install Expressjs</h5>
-          <p>Erpess is not required, but we are using it to server our website in this example</p>
+          <p>Express is not required, but we are using it to server our website in this example</p>
           <gist-embed hide-footer no-scroll height="18" src="https://gist.github.com/B-3PO/16406fd959ddfbe44d15dbd2f25a9dd2"></gist-embed>
         </article>
 

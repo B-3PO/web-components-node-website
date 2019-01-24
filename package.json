@@ -1,6 +1,6 @@
 {
   "name": "web-components-node-website",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Build, render and serve web-components",
   "main": "server.js",
   "repository": {
@@ -16,6 +16,6 @@
   "dependencies": {
     "express": "^4.16.4",
     "morgan": "^1.9.1",
-    "web-components-node": "file:../web-components-node"
+    "web-components-node": "0.4.0-beta.0"
   }
 }

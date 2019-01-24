@@ -39,7 +39,7 @@ const page = new class BuildingPages extends Page {
         <article class="sub-article" id="interactive-page">
           <h4>Interactive page</h4>
           <p>Interactive page that initially renders server-side and then rerenders on the client once the client loads the required data. The page also re-renders when the drop downs are updated</p>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/00a0674ad885506c5f87df580be642b5"></gist-embed>
+            <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/00a0674ad885506c5f87df580be642b5"></gist-embed>
         </article>
 
         <a class="button" href="/documentation/page-mapper">Next: Page Mapper</a>

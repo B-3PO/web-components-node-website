@@ -11,7 +11,7 @@ const page = new class LoadingServer extends Page {
 
   // Page title. Returnes from build()
   get title() {
-    return 'Loading data on the client';
+    return 'Loading and rendering on the server';
   }
 
   html() {
@@ -40,7 +40,7 @@ const page = new class LoadingServer extends Page {
 
         <article>
           <h4>Page code</h4>
-          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/b92a43b1ed94b390b2b5f197b0bb5d5f"></gist-embed>
+          <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/b602d75041be7f99b531bf1028e58d08"></gist-embed>
         </article>
       </article>
     `;
