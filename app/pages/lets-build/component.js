@@ -35,13 +35,12 @@ const page = new class Component extends Page {
 
         <h6 style="padding-left:24px;">Quick links</h6>
         <ul>
-          <li><anchor-link selector="#service" offset="56px">Add service</anchor-link></li>
-          <li><anchor-link selector="#route" offset="56px">Add states route</anchor-link></li>
-          <li><anchor-link selector="#page" offset="56px">Build interactive page</anchor-link></li>
-          <li><a href="/lets-build/warp-up">Next: Wrap up</a></li>
+          <li><anchor-link selector="#one" offset="56px">Build a component</anchor-link></li>
+          <li><anchor-link selector="#two" offset="56px">Add progress bar to page</anchor-link></li>
+          <li><a href="/examples/loading-client">Next: Examples</a></li>
         </ul>
 
-        <article class="sub-article" id="service">
+        <article class="sub-article" id="one">
           <h4>Build a component</h4>
           <p>We will be building the progress barr you see below</p>
           <progress-bar></progress-bar>
@@ -53,14 +52,14 @@ const page = new class Component extends Page {
           <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c262c72caf018bd56bce300481074cd6"></gist-embed>
         </article>
 
-        <article class="sub-article" id="service">
+        <article class="sub-article" id="two">
           <h4>Add progress bar to page</h4>
           <p>Lets add the progress bar to the hello world page</p>
           <div class="direction">update file: <b>hello-world.js</b></div>
           <gist-embed hide-footer no-scroll src="https://gist.github.com/B-3PO/c6299f37c9c0a2106d29f4406a5af17f"></gist-embed>
         </article>
 
-        <a class="button" href="/lets-build/warp-up">Next: Lets build - Wrap up</a>
+        <a class="button" href="/examples/loading-client">Next: Examples</a>
       </article>
     `;
   }

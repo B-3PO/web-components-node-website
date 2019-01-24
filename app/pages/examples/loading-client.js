@@ -53,7 +53,7 @@ const page = new class LoadingClient extends Page {
       <article>
         <article class="into-article">
           <h2>Load data client side</h2>
-          <p>In this example we will pre render the page with a progress bar. The client will then load data and re render the page to show the data</p>
+          <p>In this example we will pre render the page with a progress bar. The client will then load data and re-render the page to show the data</p>
         </article>
 
         <progress-bar ${this.loading ? '' : 'style="display: none;"'}></progress-bar>
