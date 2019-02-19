@@ -1,6 +1,6 @@
 {
   "name": "web-components-node-website",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Build, render and serve web-components",
   "main": "server.js",
   "repository": {
